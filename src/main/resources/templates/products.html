@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magazyn</title>
+</head>
+<body>
+<div align="center">
+
+    <a th:href="@{mainPage}">Strona główna</a> |
+    <a th:href="@{products}">Produkty</a> |
+    <a th:href="@{services}">Usługi</a> |
+    <a th:href="@{contact}">Kontakt</a>
+
+
+
+    <table class="table" align="center">
+        <thead class="thead">
+            <th>LP</th>
+            <th>Nazwa</th>
+            <th>Ilość</th>
+            <th>Cena</th>
+
+        </thead>
+        <tbody>
+            <th:block th:each="products: ${listItems}" >
+                <tr>
+                    <td>
+                        <a href="#" th:href="@{id/{id} (id=${products.id})}"> [[${products.id}]] </a>
+                    </td>
+                    <td>[[${products.name}]]</td>
+                    <td>
+                        <div>
+                            <!--<input  style="width:70px;" th:value="${products.quantity}" id="id" name="quantity" readonly>
+                            <form action="#" th:action="@{/products/{id}/{action}(id = ${product.id}, action = increase)}" method="post">
+                                <button type="submit" class="btn btn-outline-secondary btn-sm" style="width: 38px; height: 38px;">+</button>
+                            </form>
+                            <form action="#" th:action="@{/products/{id}/{action}(id = ${product.id}, action = decrease)}" method="post">
+                                <button type="submit" class="btn btn-outline-secondary btn-sm" style="width: 38px; height: 38px;">-</button>
+                            </form>-->
+
+                            [[${products.quantity}]]
+                        </div>
+                    </td>
+                    <td>[[${products.price}]]</td>
+                </tr>
+            </th:block>
+
+        </tbody>
+
+    </table>
+    <div><a th:href="@{/new}"> add new Item</a></div>
+
+</div>
+</body>
+</html>

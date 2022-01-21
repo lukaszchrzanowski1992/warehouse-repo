@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magazyn</title>
+</head>
+<body>
+    <div align="center">
+        <div class="container">
+            <h1>Magazyn</h1>
+            <hr>
+            <h2>Add item</h2>
+
+
+                <th:block th:each="products: ${items}" >
+                    <tr>
+                        <td>[[${products.id}]]</td>
+                        <td>[[${products.name}]]</td>
+                        <td>[[${products.quantity}]]</td>
+                        <td>[[${products.price}]]</td>
+                        <td>[[${products.description}]]</td>
+                    </tr>
+                </th:block>
+
+
+        </div>
+
+            <a th:href="@{/products}"> Back </a>
+        </div>
+</body>
+</html>
